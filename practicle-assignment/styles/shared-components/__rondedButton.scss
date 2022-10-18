@@ -1,0 +1,14 @@
+.roundedButton{
+    width: 150px;
+    border-radius: 25px;
+    color: $White-one;
+    height: 35px;
+    background-color: $Violet-one;
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
