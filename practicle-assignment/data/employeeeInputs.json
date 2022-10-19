@@ -1,0 +1,71 @@
+{
+  "fields": [
+    {
+      "name": "First Name",
+      "dbName": "firstName",
+      "multipleFields": false,
+      "fieldsNames": [],
+      "class1": "edit-input-medium-select",
+      "class2": "edit-input-data",
+      "class3": "edit-input-medium-error",
+      "edit": true,
+      "inputType": "input",
+      "errorMessage": "Please enter a value",
+      "mandatory": true
+    },
+    {
+      "name": "Last Name",
+      "dbName": "lastName",
+      "multipleFields": false,
+      "fieldsNames": [],
+      "class1": "edit-input-medium",
+      "class2": "edit-input-data",
+      "class3": "edit-input-medium-error",
+      "edit": true,
+      "inputType": "input",
+      "errorMessage": "Please enter your job title",
+      "mandatory": true
+    },
+    {
+      "name": "Email",
+      "dbName": "emailAddress",
+      "multipleFields": false,
+      "fieldsNames": [],
+      "class1": "edit-input-medium",
+      "class2": "edit-input-data",
+      "class3": "edit-input-medium-error",
+      "edit": false,
+      "inputType": "input",
+      "errorMessage": "Please enter a value",
+      "mandatory": true
+    },
+    {
+      "name": "Phone",
+      "dbName": "phoneNumber",
+      "multipleFields": false,
+      "fieldsNames": [],
+      "class1": "edit-input-medium",
+      "class2": "edit-input-data",
+      "class3": "edit-input-medium-error",
+      "edit": true,
+      "inputType": "input",
+      "errorMessage": "Please enter your mobile number",
+      "mandatory": true
+    },
+    {
+      "name": "Gender",
+      "dbName": "gender",
+      "multipleFields": false,
+      "fieldsNames": [],
+      "class1": "edit-input-medium",
+      "class2": "edit-input-data",
+      "class3": "edit-input-medium-error",
+      "edit": false,
+      "inputType": "select",
+      "errorMessage": "Please enter a value",
+      "mandatory": true
+    }
+  ],
+  "previousRoute": "/employee/list",
+  "buttons": [{"name": "ADD", "class1": "borderButton"}]
+}

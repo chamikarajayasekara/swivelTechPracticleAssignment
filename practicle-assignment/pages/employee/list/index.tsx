@@ -21,15 +21,20 @@ const Index: NextPage  = () => {
         router.push("/employee/add")
     }
     function handleGrid() {
-        setGridIcon("table")
+        if (gridIcon === "grid"){
+            setGridIcon("table")
+        }else{
+            setGridIcon("grid")
+        }
+
     }
 
-    function handleDelete(id:number) {
+    function handleDelete(id:string) {
         console.log(id)
     }
 
-    function handleEdit(id:number) {
-        console.log(id)
+    function handleEdit(id:string) {
+        router.push(`/employee/edit/${id}`)
     }
 
     useEffect(()=>{

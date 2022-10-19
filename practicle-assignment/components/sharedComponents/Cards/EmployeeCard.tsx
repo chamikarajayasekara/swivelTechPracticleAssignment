@@ -30,7 +30,7 @@ const EmployeeCard = (props:Props) => {
                         <div onClick={e => props.handleDelete(props.employee._id)}>
                             <IconButton icon={"delete"} handleFunction={handleActions}/>
                         </div>
-                       <div>
+                       <div onClick={e => props.handleEdit(props.employee._id)}>
                            <IconButton icon={"edit"} handleFunction={handleActions}/>
                        </div>
                     </div>

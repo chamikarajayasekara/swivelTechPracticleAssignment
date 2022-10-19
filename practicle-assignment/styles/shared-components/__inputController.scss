@@ -1,0 +1,64 @@
+.input-section{
+  display: flex;
+  height: 65px;
+  .label-line{
+    width: 20%;
+    display: flex;
+    align-items: center;
+    font-family: $Roboto;
+    font-size: 15px;
+
+  }
+  .textField{
+    width: 70%;
+    .error-line{
+      color: $ErrorColor;
+      font-size: 10px;
+      margin: 0;
+      height: 10px;
+    }
+    .input-control{
+      width: 90%;
+      height: 40px;
+      background: $Grey-one;
+      border: $White-one;
+      border-bottom: 1px solid $Text-one;
+      color: rgba(17, 17, 17, 0.48);
+      display: flex;
+      align-items: center;
+      padding-left: 16px;
+      margin-right: 34px;
+      margin-top: 5px;
+      font-family: $Roboto;
+      font-size: 15px;
+      .option-control{
+        color: rgba(17, 17, 17, 0.48);
+      }
+      @media #{$Mobile}  {
+        width:100%;
+        margin-bottom: 10px;
+      }
+    }
+    .input-control:focus {
+      outline: none !important;
+    }
+    .input-control-error{
+      width: 90%;
+      height: 40px;
+      background: $Grey-one;
+      border: $White-one;
+      border-bottom: 1px solid $Text-one;
+      color: rgba(17, 17, 17, 0.48);
+      display: flex;
+      align-items: center;
+      padding-left: 16px;
+      margin-right: 34px;
+      margin-top: 5px;
+      font-family: $Roboto;
+      font-size: 15px;
+    }
+    .input-control-error:focus {
+      outline: none !important;
+    }
+  }
+}

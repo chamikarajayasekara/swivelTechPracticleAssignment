@@ -1,20 +1,19 @@
 import React from 'react';
-import EmployeeCard from "../../sharedComponents/Cards/EmployeeCard";
 import {IEmployee} from "../../../types/IEmployee";
+import GridView from "./GridView";
+import TableView from "./TableView";
 
 interface Props {
     gridType:string,
     employees:IEmployee[],
-    handleDelete: (id:number) => void;
-    handleEdit: (id:number)=> void
+    handleDelete: (id:string) => void;
+    handleEdit: (id:string)=> void
 }
 const EmployeeManagementControllerWrapper = (props:Props) => {
     return (
-        <div className="employee-wrapper">
+        <div>
             {
-                props.employees.map((employee:IEmployee, key:number )=>
-                    <EmployeeCard employee={employee} key={key} handleEdit={props.handleEdit} handleDelete={props.handleDelete}/>
-                )
+                props.gridType === "grid"? <GridView employees={props.employees} handleEdit={props.handleEdit} handleDelete={props.handleDelete}/> : <TableView employees={props.employees} handleEdit={props.handleEdit} handleDelete={props.handleDelete}/>
             }
         </div>
     );

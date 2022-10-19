@@ -67,4 +67,17 @@ router.put("/employee/:id", (req,res) =>{
         }
     })
 })
+
+
+router.get("/employee/:id", (req,res) =>{
+    const id = req.params.id;
+    Employee.findById(id, req.body, (err, employee)=>{
+        if (err){
+            res.send({message: "employee get failed"})
+        } else {
+            res.status(200).send(employee);
+        }
+    })
+})
+
 module.exports = router;

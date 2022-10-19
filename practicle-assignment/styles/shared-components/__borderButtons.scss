@@ -1,0 +1,15 @@
+.borderButton{
+  width: 120px;
+  border-radius: 5px;
+  color: $Violet-one;
+  height: 40px;
+  background-color: transparent;
+  border: 2px solid $Violet-one ;
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}

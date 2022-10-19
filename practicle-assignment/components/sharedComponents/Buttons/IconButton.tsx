@@ -17,7 +17,7 @@ const IconButton = (props:Props) => {
         }
     },[])
     return (
-        <div className={`icon-button `+color}>
+        <div className={`icon-button `+color} onClick={props.handleFunction}>
             { props.icon === "grid" ? <FaGripHorizontal/> : null}
             { props.icon === "table" ? <FaList/> : null}
             { props.icon === "delete" ? <FaTrashAlt/> : null}

@@ -18,7 +18,8 @@
     "react-dom": "18.2.0",
     "react-icons": "^4.6.0",
     "react-redux": "^8.0.4",
-    "sass": "^1.42.1"
+    "sass": "^1.42.1",
+    "validator": "^13.7.0"
   },
   "devDependencies": {
     "@types/node": "18.11.0",
