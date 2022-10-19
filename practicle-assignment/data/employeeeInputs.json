@@ -10,7 +10,7 @@
       "class3": "edit-input-medium-error",
       "edit": true,
       "inputType": "input",
-      "errorMessage": "Please enter a value",
+      "errorMessage": "Please enter a First Name",
       "mandatory": true,
       "showAsInput": true
     },
@@ -24,7 +24,7 @@
       "class3": "edit-input-medium-error",
       "edit": true,
       "inputType": "input",
-      "errorMessage": "Please enter your job title",
+      "errorMessage": "Please enter your Last Name",
       "mandatory": true,
       "showAsInput": true
     },
@@ -38,7 +38,7 @@
       "class3": "edit-input-medium-error",
       "edit": false,
       "inputType": "input",
-      "errorMessage": "Please enter a value",
+      "errorMessage": "Please enter ypur Email",
       "mandatory": true,
       "showAsInput": true
     },
@@ -66,7 +66,7 @@
       "class3": "edit-input-medium-error",
       "edit": false,
       "inputType": "select",
-      "errorMessage": "Please enter a value",
+      "errorMessage": "Please enter your gender",
       "mandatory": true,
       "showAsInput":false
     }
