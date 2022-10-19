@@ -15,7 +15,7 @@ const EmployeeCard = (props:Props) => {
     return (
         <div className="employee-card">
             <Image
-                src={props.employee.photo}
+                src={props.employee.photo ? props.employee.photo : 'https://randomuser.me/api/portraits/lego/3.jpg'}
                 alt="Picture of the author"
                 width="350px"
                 height="270px"

@@ -1,5 +1,5 @@
-import React, {useEffect} from 'react';
-import {listEmployeesFromApi} from "../../../apis/employees.api.helper";
+import React, {useContext, useEffect} from 'react';
+import {deleteEmployee, listEmployeesFromApi} from "../../../apis/employees.api.helper";
 import {NextPage} from "next";
 import {useDispatch, useSelector} from "react-redux";
 import {AppDispatch, RootState} from "../../../store/store";
@@ -10,8 +10,10 @@ import IconButton from "../../../components/sharedComponents/Buttons/IconButton"
 import {useRouter} from "next/router";
 import EmployeeManagementControllerWrapper
     from "../../../components/features/employeeManage/EmployeeManagementControllerWrapper";
+import {AlertContext} from "../../../context";
 
 const Index: NextPage  = () => {
+    const { addAlert} =useContext(AlertContext)
     const dispatch = useDispatch<AppDispatch>();
     const employees = useSelector((state: RootState) => state.employeeManagement.employees);
     const router = useRouter()
@@ -30,7 +32,21 @@ const Index: NextPage  = () => {
     }
 
     function handleDelete(id:string) {
-        console.log(id)
+        deleteEmployee(id).then(res => {
+            if(res.message === "Employee was deleted successfully!"){
+                addAlert("Employee Deleted Successfully", "success", true);
+                router.push("/employee/list");
+                dispatch(listEmployees ())
+            }else{
+                addAlert("Employee Deleted Failed", "failed", true);
+                router.push("/employee/list")
+            }
+
+        })
+            .catch(e => {
+                addAlert("Employee Deleted Failed", "failed", true);
+                router.push("/employee/list")
+            })
     }
 
     function handleEdit(id:string) {

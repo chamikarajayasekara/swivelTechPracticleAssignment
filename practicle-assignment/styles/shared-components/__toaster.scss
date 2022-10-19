@@ -1,0 +1,33 @@
+.toast-container{
+  z-index: 1000;
+  .toast{
+    height: 60px;
+    .toast-header-success{
+      height: 60px;
+      width: 350px;
+      background-color: #0F9960;
+      color: white;
+      //border-radius: 5px;
+      button{
+        background-color: azure;
+      }
+    }
+    .toast-header-danger{
+      height: 60px;
+      background-color: #DC3546;
+      color: white;
+      //border-radius: 5px;
+      button{
+        background-color: azure;
+      }
+    }
+    .toast-body{
+      font-family: $Roboto;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 24px;
+      color: #FFFFFF;
+    }
+  }
+}

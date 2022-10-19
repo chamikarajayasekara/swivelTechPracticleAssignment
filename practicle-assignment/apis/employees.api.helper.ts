@@ -11,7 +11,15 @@ export async function listEmployeesFromApi() {
 
 export async function listSelectedEmployeeFromApi(id:string) {
     try{
-        return  (await  axios.get(`http://localhost:8080/employee/${id}`)).data;
+        return  (await  axios.delete(`http://localhost:8080/employee/${id}`));
+    }catch (e) {
+        throw "Employee delete Failed"
+    }
+}
+
+export async function deleteEmployee(id:string) {
+    try{
+        return  (await  axios.delete(`http://localhost:8080/employee/${id}`)).data;
     }catch (e) {
         throw "Employee get Failed"
     }

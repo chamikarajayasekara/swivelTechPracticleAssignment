@@ -30,11 +30,10 @@ const TableView = (props:Props) => {
             <tbody>
             {
                 props.employees.map((employee:IEmployee, key:number )=>
-                    // <EmployeeCard employee={employee} key={key} handleEdit={props.handleEdit} handleDelete={props.handleDelete}/>
                     <tr key={key}>
                         <td>
                             <Image
-                                src={employee.photo}
+                                src={employee.photo ? employee.photo : 'https://randomuser.me/api/portraits/lego/3.jpg'}
                                 alt="Picture of the author"
                                 width="55px"
                                 height="55px"

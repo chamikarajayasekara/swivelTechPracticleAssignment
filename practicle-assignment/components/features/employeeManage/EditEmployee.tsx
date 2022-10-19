@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useContext, useEffect} from 'react';
 import Card from "react-bootstrap/Card";
 import InputController from "../../sharedComponents/InputControllerss/InputController";
 import {
@@ -13,11 +13,13 @@ import EmployeeInputs from "../../../data/employeeeInputs.json"
 import {IEmployee} from "../../../types/IEmployee";
 import {editEmployee} from "../../../apis/employees.api.helper";
 import {useRouter} from "next/router";
+import {AlertContext} from "../../../context";
 
 interface Props {
     selectedEmployee:any
 }
 const EditEmployee = (props:Props) => {
+    const { addAlert} =useContext(AlertContext)
     const router = useRouter();
     const [inputValue, setInputValue] = React.useState<any>();
     const [inputErrorValue, setInputErrorValue] = React.useState<any>();
@@ -41,9 +43,19 @@ const EditEmployee = (props:Props) => {
         errorIdentifiedInSubmit(EmployeeInputs.fields, inputValue, setInputErrorValue,setEditFields, inputErrorValue );
         let isNull = checkErrorsBeforeSubmit(inputValue,EmployeeInputs.fields );
         if(!isNull){
-            editEmployee(inputValue, id).then(r => {
-                console.log(r)
+            editEmployee(inputValue, id).then(res => {
+                   if(res.status  === 200){
+                    addAlert("Employee Edited Successfully", "success", true);
+                    router.push("/employee/list")
+                }else{
+                    addAlert("Employee Edited Failed", "failed", true);
+                    router.push("/employee/list")
+                }
             })
+                .catch(e => {
+                    addAlert("Employee Edited Failed", "failed", true);
+                    router.push("/employee/list")
+                })
         }
     }
     const MainHandleFunction = (e:any, buttonType:string) =>{

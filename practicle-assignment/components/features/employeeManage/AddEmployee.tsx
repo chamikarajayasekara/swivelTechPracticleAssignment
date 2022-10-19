@@ -1,7 +1,8 @@
-import React, {useEffect} from 'react';
+import React, {useEffect,  useContext,} from 'react';
 import Card from "react-bootstrap/Card";
 import EmployeeInputs from "../../../data/employeeeInputs.json"
 import InputController from "../../sharedComponents/InputControllerss/InputController";
+import {AlertContext} from "../../../context";
 import {
     checkErrorsBeforeSubmit,
     checkIsNullishByAll,
@@ -11,7 +12,10 @@ import {
     InputValueGet
 } from "../../../helpers/InputDataSetHelper";
 import {addEmployee} from "../../../apis/employees.api.helper";
+import {useRouter} from "next/router";
 const AddEmployee = () => {
+    const router = useRouter()
+    const { addAlert} =useContext(AlertContext)
     const [inputValue, setInputValue] = React.useState<any>();
     const [inputErrorValue, setInputErrorValue] = React.useState<any>();
     const [editFields, setEditFields] = React.useState<any>({});
@@ -34,10 +38,18 @@ const AddEmployee = () => {
         let isNull = checkErrorsBeforeSubmit(inputValue,EmployeeInputs.fields)
         if(!isNull){
             addEmployee(inputValue).then(res => {
-                console.log(res)
+                if(res.status  === 200){
+                    addAlert("Employee Created Successfully", "success", true);
+                    router.push("/employee/list")
+                }else{
+                    addAlert("Employee Created Failed", "failed", true);
+                    router.push("/employee/list")
+                }
+
             })
                 .catch(e => {
-                    console.log(e)
+                    addAlert("Employee Created Failed", "failed", true);
+                    router.push("/employee/list")
                 })
         }
     }
