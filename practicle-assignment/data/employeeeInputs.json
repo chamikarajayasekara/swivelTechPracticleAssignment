@@ -11,7 +11,8 @@
       "edit": true,
       "inputType": "input",
       "errorMessage": "Please enter a value",
-      "mandatory": true
+      "mandatory": true,
+      "showAsInput": true
     },
     {
       "name": "Last Name",
@@ -24,7 +25,8 @@
       "edit": true,
       "inputType": "input",
       "errorMessage": "Please enter your job title",
-      "mandatory": true
+      "mandatory": true,
+      "showAsInput": true
     },
     {
       "name": "Email",
@@ -37,7 +39,8 @@
       "edit": false,
       "inputType": "input",
       "errorMessage": "Please enter a value",
-      "mandatory": true
+      "mandatory": true,
+      "showAsInput": true
     },
     {
       "name": "Phone",
@@ -50,7 +53,8 @@
       "edit": true,
       "inputType": "input",
       "errorMessage": "Please enter your mobile number",
-      "mandatory": true
+      "mandatory": true,
+      "showAsInput": true
     },
     {
       "name": "Gender",
@@ -63,9 +67,11 @@
       "edit": false,
       "inputType": "select",
       "errorMessage": "Please enter a value",
-      "mandatory": true
+      "mandatory": true,
+      "showAsInput":false
     }
   ],
   "previousRoute": "/employee/list",
-  "buttons": [{"name": "ADD", "class1": "borderButton"}]
+  "buttons": [{"name": "ADD", "class1": "borderButton"}],
+  "selectOptions": [{"name": "M"}, {"name": "F"}]
 }

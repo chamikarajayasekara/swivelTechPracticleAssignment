@@ -3,14 +3,16 @@ import Card from "react-bootstrap/Card";
 import EmployeeInputs from "../../../data/employeeeInputs.json"
 import InputController from "../../sharedComponents/InputControllerss/InputController";
 import {
+    checkErrorsBeforeSubmit,
     checkIsNullishByAll,
     errorIdentifiedInSubmit,
     ErrorsExists,
     InitiallySetData,
     InputValueGet
 } from "../../../helpers/InputDataSetHelper";
+import {addEmployee} from "../../../apis/employees.api.helper";
 const AddEmployee = () => {
-    const [inputValue, setInputValue] = React.useState();
+    const [inputValue, setInputValue] = React.useState<any>();
     const [inputErrorValue, setInputErrorValue] = React.useState<any>();
     const [editFields, setEditFields] = React.useState<any>({});
 
@@ -28,10 +30,15 @@ const AddEmployee = () => {
 
     function handleSubmit(e:any) {
         e.preventDefault();
-        errorIdentifiedInSubmit(EmployeeInputs.fields, inputValue, setInputErrorValue,setEditFields )
-        let isNull = checkIsNullishByAll(inputValue,EmployeeInputs.fields )
-        if(isNull === false){
-            console.log(inputValue)
+        errorIdentifiedInSubmit(EmployeeInputs.fields, inputValue, setInputErrorValue,setEditFields, inputErrorValue )
+        let isNull = checkErrorsBeforeSubmit(inputValue,EmployeeInputs.fields)
+        if(!isNull){
+            addEmployee(inputValue).then(res => {
+                console.log(res)
+            })
+                .catch(e => {
+                    console.log(e)
+                })
         }
     }
     const MainHandleFunction = (e:any, buttonType:string) =>{
@@ -55,11 +62,13 @@ const AddEmployee = () => {
                         <InputController key={key} value={InputValueGet(inputValue, employee.dbName)}
                                          name={employee.name}
                                          placeholder={employee.name}
-                                         type={employee.input}
+                                         type={employee.inputType}
                                          onChange={e => handleChangeInputValues(e, employee.dbName)}
                                          label={employee.name}
                                          errors={inputErrorValue[employee.dbName]}
                                          defaultValue={null}
+                                         selectOptions={EmployeeInputs.selectOptions}
+                                         showAsInput={employee.showAsInput}
                         />
                     )
                 }

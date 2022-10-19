@@ -23,7 +23,6 @@ const EmployeeSchema = mongoose.Schema({
     },
     photo:{
         type:String,
-        required:true
     }
 })
 

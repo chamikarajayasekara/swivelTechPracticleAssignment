@@ -31,3 +31,18 @@ export  async function addEmployee(employee:IEmployee) {
         throw "Employees create Failed"
     }
 }
+
+export  async function editEmployee(employee:IEmployee,id:string) {
+    try {
+        return  (await  axios.put(`http://localhost:8080/employee/${id}`,{
+            "firstName": employee.firstName,
+            "lastName": employee.lastName,
+            "emailAddress": employee.emailAddress,
+            "phoneNumber": employee.phoneNumber,
+            "photo": employee.photo,
+            "gender": employee.gender
+        }));
+    }catch (e) {
+        throw "Employees update Failed"
+    }
+}
