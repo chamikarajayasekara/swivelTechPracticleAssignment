@@ -32,8 +32,8 @@ const Index: NextPage  = () => {
     }
 
     function handleDelete(id:string) {
-        deleteEmployee(id).then(res => {
-            if(res.message === "Employee was deleted successfully!"){
+        deleteEmployee(id).then((res:any) => {
+            if(res){
                 addAlert("Employee Deleted Successfully", "success", true);
                 router.push("/employee/list");
                 dispatch(listEmployees ())
@@ -50,6 +50,7 @@ const Index: NextPage  = () => {
     }
 
     function handleEdit(id:string) {
+        console.log("hii")
         router.push(`/employee/edit/${id}`)
     }
 
