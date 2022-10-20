@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home renders a description 1`] = `
+<div>
+  <div
+    class="container-fluid"
+  >
+    Welcome to Employee Management System
+  </div>
+</div>
+`;
+
+exports[`Home renders a heading 1`] = `
+<div>
+  <div
+    class="container-fluid"
+  >
+    Welcome to Employee Management System
+  </div>
+</div>
+`;

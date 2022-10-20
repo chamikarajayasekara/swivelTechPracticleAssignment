@@ -70,55 +70,6 @@ const InputController = (props:Props) => {
                 {
                     Render()
                 }
-                {/*{*/}
-                {/*  props.type === "input" &&  props.value !== null ?*/}
-                {/*        <input*/}
-                {/*            type={props.type}*/}
-                {/*            defaultValue={props.defaultValue}*/}
-                {/*            // value={props.value}*/}
-                {/*            name={props.name}*/}
-                {/*            className={props.errors  && props.errors.error  ? "input-control-error":"input-control"}*/}
-                {/*            onChange={props.onChange}*/}
-                {/*            // required={true}*/}
-                {/*        />*/}
-                {/*        :*/}
-                {/*        <>*/}
-                {/*            {*/}
-
-                {/*                props.showAsInput ?*/}
-                {/*                    <input*/}
-                {/*                        type={props.type}*/}
-                {/*                        value={props.value}*/}
-                {/*                        name={props.name}*/}
-                {/*                        className={props.errors  && props.errors.error  ? "input-control-error":"input-control"}*/}
-                {/*                        placeholder={props.placeholder}*/}
-                {/*                        onChange={props.onChange}*/}
-                {/*                        // required={true}*/}
-                {/*                    />*/}
-                {/*                    :*/}
-
-                {/*                    <>*/}
-                {/*                        {*/}
-                {/*                            props.type === "select"  ?*/}
-
-                {/*                                <select name={props.name} id={props.name}   className={props.errors  && props.errors.error   ? "input-control-error":"input-control"}   onChange={props.onChange} value={props.value} required={true}>*/}
-                {/*                                    <option disabled={true} className="option-control">{props.placeholder}</option>*/}
-                {/*                                    {*/}
-                {/*                                        props.selectOptions.map((option:any, key:number)=>*/}
-                {/*                                            <option key={key} className="option-control">{option.name}</option>*/}
-                {/*                                        )*/}
-                {/*                                    }*/}
-                {/*                                </select>*/}
-                {/*                                :*/}
-                {/*                                null*/}
-                {/*                        }*/}
-                {/*                    </>*/}
-
-                {/*            }*/}
-                {/*        </>*/}
-
-                {/*}*/}
-
 
             </div>
 
