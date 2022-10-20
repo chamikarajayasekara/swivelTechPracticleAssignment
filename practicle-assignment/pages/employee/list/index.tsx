@@ -50,7 +50,6 @@ const Index: NextPage  = () => {
     }
 
     function handleEdit(id:string) {
-        console.log("hii")
         router.push(`/employee/edit/${id}`)
     }
 
