@@ -20,7 +20,7 @@ export const AlertContext = createContext<AlertContextState>(
     contextDefaultValues
 )
 
-const TodosProvider: React.FC<Props> = ({children}) =>  {
+const AlertProvider: React.FC<Props> = ({children}) =>  {
     const [alert, setAlert] = useState(contextDefaultValues.alert);
 
     function addAlert(message:any,severity:any,alert:boolean) {
@@ -45,4 +45,4 @@ const TodosProvider: React.FC<Props> = ({children}) =>  {
     );
 };
 
-export default TodosProvider;
+export default AlertProvider;
