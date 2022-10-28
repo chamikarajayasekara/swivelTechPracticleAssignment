@@ -42,7 +42,8 @@ You can see following in the terminal or cmd
 ```sh
 npm run build
 ```
-Related routes and pages and what features does by the page
+Related routes and pages and what features does by the page.
+By clicking 'List Employee' button in the initial load page, can navigated to the employee list page
 *     __app.tsx   - initial rendering page http://localhost:3000/
 *     pages/employee/list  - employee list feature http://localhost:3000/employee/list
 *     pages/employee/add  - employee add feature http://http://localhost:3000/employee/add
