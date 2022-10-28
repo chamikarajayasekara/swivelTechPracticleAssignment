@@ -60,8 +60,8 @@ const Index: NextPage  = () => {
     return (
         <Container fluid >
             <Row>
-                <Col sm={10}></Col>
-                <Col sm={2}>
+                <Col sm={6} md={8} lg={10}></Col>
+                <Col sm={6} md={4} lg={2}>
                     <div className="grid-select-area">
                         <RoundedButton content={"ADD EMPLOYEE"} handleFunction={addClickButton}/>
                         <IconButton icon={gridIcon} handleFunction={handleGrid}/>
