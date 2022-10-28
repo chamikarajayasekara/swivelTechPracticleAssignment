@@ -1,7 +1,6 @@
 import React from 'react';
 
 interface Props {
-    key:number,
     className:string,
     MainHandleFunction: (e:any, name:string) => void,
     content:string,
@@ -9,7 +8,7 @@ interface Props {
 }
 const BorderButton = (props:Props) => {
     return (
-        <button key={props.key} className={props.className}  onClick={e => props.MainHandleFunction(e, props.buttonName)}>{props.content}</button>
+        <button  className={props.className}  onClick={e => props.MainHandleFunction(e, props.buttonName)}>{props.content}</button>
 
     );
 };
