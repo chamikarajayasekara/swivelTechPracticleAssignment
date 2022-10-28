@@ -24,6 +24,7 @@ const EditEmployee = (props:Props) => {
     const [inputValue, setInputValue] = React.useState<any>();
     const [inputErrorValue, setInputErrorValue] = React.useState<any>();
     const [editFields, setEditFields] = React.useState<any>({});
+
     useEffect(()=>{
         InitiallySetData(EmployeeInputs.fields, "edit", setInputValue,setInputErrorValue, props.selectedEmployee, setEditFields )
     },[])

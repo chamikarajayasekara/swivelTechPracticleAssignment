@@ -1,34 +1,50 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
 
-First, run the development server:
+Hello Team, Here I developed the client side of the Swivel Tech practical assignment.
 
-```bash
-npm run dev
-# or
-yarn dev
+### Prerequisites
+
+- [Node.js](https://nodejs.org/en/)
+- [Git](https://git-scm.com/)
+
+#### Hope you cloned the repository at the moment, **If not** kindly follow the following directory
+
+`swivelTechPracticleAssignment/README.md`
+
+### Installation
+1. Open the terminal or cmd using the following path
+    `swivelTechPracticleAssignment/practicle-assignment`
+
+2. Install NPM packages
+
+```sh
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. Run in local environment
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+(Before run the client side please make sure to run the backend server)
+```sh
+npm run dev
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Once you run the code the server started in the following url. You can visit to the project.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+[http://localhost:3000/](http://localhost:3000/)
 
-## Learn More
+You can see following in the terminal or cmd
+* ready - started server on 0.0.0.0:3000, url: http://localhost:3000
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. Run in build mode
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```sh
+npm run build
+```
+Related routes and pages and what features does by the page
+*     __app.tsx   - initial rendering page http://localhost:3000/
+*     pages/employee/list  - employee list feature http://localhost:3000/employee/list
+*     pages/employee/add  - employee add feature http://http://localhost:3000/employee/add
+*     pages/employee/edit  - employee edit feature http://http://localhost:3000/employee/edit/:_id
+            

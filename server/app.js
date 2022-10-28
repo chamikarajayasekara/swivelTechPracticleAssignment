@@ -33,9 +33,10 @@ mongoose.connect(
         useNewUrlParser: true,
         useUnifiedTopology: true
     }).then(()=>{
-        console.log("connected")
+        console.log("DB connected")
+        console.log("DB connected")
     }).catch(err=>{
-        console.log("not connected "+ err)
+        console.log("DB not connected "+ err)
     })
 
 app.use('/',employeeRouter);
