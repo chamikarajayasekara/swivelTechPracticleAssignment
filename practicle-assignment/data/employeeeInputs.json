@@ -38,7 +38,7 @@
       "class3": "edit-input-medium-error",
       "edit": false,
       "inputType": "input",
-      "errorMessage": "Please enter ypur Email",
+      "errorMessage": "Please enter your Email",
       "mandatory": true,
       "showAsInput": true
     },
