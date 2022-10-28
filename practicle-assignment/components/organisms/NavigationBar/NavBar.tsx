@@ -1,11 +1,14 @@
 import React from 'react';
 import Link from 'next/link';
+import HeadlineText from "../../atoms/HeadlineTextField/HeadlineText";
 
 const NavBar = () => {
     return (
         <div className="navigation-bar">
             <Link href="/">
-            <h5 className="text-center">Employee Manager</h5>
+                <a>
+                    <HeadlineText description={"Employee Manager"}/>
+                </a>
             </Link>
         </div>
     );

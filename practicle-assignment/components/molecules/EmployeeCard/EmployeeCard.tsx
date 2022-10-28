@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image'
 import {IEmployee} from "../../../types/IEmployee";
-import IconButton from "../Buttons/IconButton";
+import IconButton from "../../atoms/IconButton/IconButton";
 interface Props {
     employee:IEmployee;
     handleDelete: (id:string) => void;
@@ -9,9 +9,7 @@ interface Props {
 
 }
 const EmployeeCard = (props:Props) => {
-    function handleActions() {
-
-    }
+    function handleActions() {}
     return (
         <div className="employee-card">
             <Image

@@ -1,0 +1,26 @@
+.navigation-bar{
+  display: flex;
+  background-color: $Violet-one;
+  height: 50px;
+  color: $White-one;
+  font-family: $Roboto;
+  font-size: 15px;
+  vertical-align: center;
+  a{
+    text-decoration: none;
+    h5{
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      cursor: pointer;
+      color: $White-one;
+      @media #{$Mobile}  {
+        text-align: center;
+        padding: 0;
+        justify-content: center;
+      }
+
+    }
+  }
+
+}

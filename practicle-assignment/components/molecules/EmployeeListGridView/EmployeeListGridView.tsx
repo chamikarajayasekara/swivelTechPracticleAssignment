@@ -1,6 +1,6 @@
 import React from 'react';
 import {IEmployee} from "../../../types/IEmployee";
-import EmployeeCard from "../../sharedComponents/Cards/EmployeeCard";
+import EmployeeCard from "../EmployeeCard/EmployeeCard";
 
 
 interface Props {
@@ -8,7 +8,7 @@ interface Props {
     handleDelete: (id:string) => void;
     handleEdit: (id:string)=> void
 }
-const GridView = (props:Props) => {
+const EmployeeListGridView = (props:Props) => {
     return (
         <div className="employee-wrapper">
             {
@@ -20,4 +20,4 @@ const GridView = (props:Props) => {
     );
 };
 
-export default GridView;
+export default EmployeeListGridView;

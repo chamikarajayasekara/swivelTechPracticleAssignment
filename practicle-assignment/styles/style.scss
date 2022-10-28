@@ -3,14 +3,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 @import "_root";
-@import "shared-components/_navigation";
-@import "shared-components/_iconButton";
-@import "shared-components/_rondedButton";
-@import "shared-components/_employeeManagement";
-@import "shared-components/_employeeCard";
-@import "shared-components/_tableView";
-@import "shared-components/_addEmployee";
-@import "shared-components/_inputController";
-@import "shared-components/_borderButtons";
-@import "shared-components/_toaster";
+@import "../components/organisms/NavigationBar/_navigation";
+@import "../components/atoms/IconButton/_iconButton";
+@import "../components/atoms/RoundedButton/_rondedButton";
+@import "../components/molecules/EmployeeListGridView/_employeeListGrideView";
+@import "../components/molecules/EmployeeCard/_employeeCard";
+@import "../components/molecules/EmployeeListTableView/_employeeListTableView";
+@import "../components/molecules/EmployeeAddForm/_addEmployee";
+@import "../components/atoms/InputController/_inputController";
+@import "../components/atoms/BorderButton/_borderButtons";
+@import "../components/atoms/Toaster/_toaster";
 

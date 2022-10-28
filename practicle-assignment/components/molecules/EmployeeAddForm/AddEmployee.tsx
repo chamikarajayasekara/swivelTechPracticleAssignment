@@ -1,35 +1,27 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useEffect,  useContext,} from 'react';
 import Card from "react-bootstrap/Card";
-import InputController from "../../sharedComponents/InputControllerss/InputController";
+import EmployeeInputs from "../../../data/employeeeInputs.json"
+import InputController from "../../atoms/InputController/InputController";
+import {AlertContext} from "../../../context";
 import {
     checkErrorsBeforeSubmit,
-    checkIsNullishByAll,
     errorIdentifiedInSubmit,
-    ErrorsExists,
     InitiallySetData,
     InputValueGet
 } from "../../../helpers/InputDataSetHelper";
-import EmployeeInputs from "../../../data/employeeeInputs.json"
-import {IEmployee} from "../../../types/IEmployee";
-import {editEmployee} from "../../../apis/employees.api.helper";
+import {addEmployee} from "../../../apis/employees.api.helper";
 import {useRouter} from "next/router";
-import {AlertContext} from "../../../context";
-
-interface Props {
-    selectedEmployee:any
-}
-const EditEmployee = (props:Props) => {
+import BorderButton from "../../atoms/BorderButton/BorderButton";
+const AddEmployee = () => {
+    const router = useRouter()
     const { addAlert} =useContext(AlertContext)
-    const router = useRouter();
     const [inputValue, setInputValue] = React.useState<any>();
     const [inputErrorValue, setInputErrorValue] = React.useState<any>();
     const [editFields, setEditFields] = React.useState<any>({});
 
     useEffect(()=>{
-        InitiallySetData(EmployeeInputs.fields, "edit", setInputValue,setInputErrorValue, props.selectedEmployee, setEditFields )
+        InitiallySetData(EmployeeInputs.fields, "add", setInputValue,setInputErrorValue , null, setEditFields)
     },[])
-
-    let id:any = router?.query?.id;
 
     const handleChangeInputValues = (e:any, dbName:string) => {
         const { name, value } = e.target;
@@ -41,20 +33,21 @@ const EditEmployee = (props:Props) => {
 
     function handleSubmit(e:any) {
         e.preventDefault();
-        errorIdentifiedInSubmit(EmployeeInputs.fields, inputValue, setInputErrorValue,setEditFields, inputErrorValue );
-        let isNull = checkErrorsBeforeSubmit(inputValue,EmployeeInputs.fields );
+        errorIdentifiedInSubmit(EmployeeInputs.fields, inputValue, setInputErrorValue,setEditFields, inputErrorValue )
+        let isNull = checkErrorsBeforeSubmit(inputValue,EmployeeInputs.fields)
         if(!isNull){
-            editEmployee(inputValue, id).then(res => {
-                   if(res.status  === 200){
-                    addAlert("Employee Edited Successfully", "success", true);
+            addEmployee(inputValue).then(res => {
+                if(res.status  === 200){
+                    addAlert("Employee Created Successfully", "success", true);
                     router.push("/employee/list")
                 }else{
-                    addAlert("Employee Edited Failed", "failed", true);
+                    addAlert("Employee Created Failed", "failed", true);
                     router.push("/employee/list")
                 }
+
             })
                 .catch(e => {
-                    addAlert("Employee Edited Failed", "failed", true);
+                    addAlert("Employee Created Failed", "failed", true);
                     router.push("/employee/list")
                 })
         }
@@ -72,9 +65,6 @@ const EditEmployee = (props:Props) => {
         }
     }
 
-    function fieldsDataGenerator(dbName:string) {
-        return  props.selectedEmployee[dbName]
-    }
     return (
         <Card>
             <form>
@@ -87,7 +77,7 @@ const EditEmployee = (props:Props) => {
                                          onChange={e => handleChangeInputValues(e, employee.dbName)}
                                          label={employee.name}
                                          errors={inputErrorValue[employee.dbName]}
-                                         defaultValue={fieldsDataGenerator(employee.dbName)}
+                                         defaultValue={null}
                                          selectOptions={EmployeeInputs.selectOptions}
                                          showAsInput={employee.showAsInput}
                         />
@@ -96,7 +86,7 @@ const EditEmployee = (props:Props) => {
                 <div className="footer-section">
                     {
                         EmployeeInputs.buttons.map((button:any,key:number) =>
-                            <button key={key} className={button.class1}  onClick={e => MainHandleFunction(e, button.name)}>{"SAVE"}</button>
+                        <BorderButton key={key} buttonName={button.name} MainHandleFunction={MainHandleFunction} className={button.class1} content={button.name}/>
                         )
                     }
                 </div>
@@ -106,4 +96,4 @@ const EditEmployee = (props:Props) => {
     );
 };
 
-export default EditEmployee;
+export default AddEmployee;

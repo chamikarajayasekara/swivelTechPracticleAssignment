@@ -1,16 +1,16 @@
 import React from 'react';
 import {IEmployee} from "../../../types/IEmployee";
-import EmployeeCard from "../../sharedComponents/Cards/EmployeeCard";
+import EmployeeCard from "../EmployeeCard/EmployeeCard";
 import Table from 'react-bootstrap/Table';
 import Image from "next/image";
-import IconButton from "../../sharedComponents/Buttons/IconButton";
+import IconButton from "../../atoms/IconButton/IconButton";
 
 interface Props {
     employees:IEmployee[],
     handleDelete: (id:string) => void;
     handleEdit: (id:string)=> void
 }
-const TableView = (props:Props) => {
+const EmployeeListTableView = (props:Props) => {
     function handleActions() {
 
     }
@@ -63,4 +63,4 @@ const TableView = (props:Props) => {
     );
 };
 
-export default TableView;
+export default EmployeeListTableView;

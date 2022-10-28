@@ -1,5 +1,5 @@
 import React, {createContext, useState, FC, useEffect} from "react";
-import Toaster from "../components/sharedComponents/Toaster/Toaster";
+import Toaster from "../components/atoms/Toaster/Toaster";
 export type AlertContextState = {
     alert: any;
     addAlert: (message:any,severity:any,alert:boolean) => void;

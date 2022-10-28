@@ -3,7 +3,7 @@ import '../styles/style.scss'
 import type { AppProps } from 'next/app'
 import {store} from '../store/store'
 import { Provider } from 'react-redux';
-import NavBar from "../components/sharedComponents/NavBar/NavBar";
+import NavBar from "../components/organisms/NavigationBar/NavBar";
 import AlertProvider from "../context/alert";
 
 function MyApp({ Component, pageProps }: AppProps) {
