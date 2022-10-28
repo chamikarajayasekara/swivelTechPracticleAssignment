@@ -48,4 +48,17 @@ By clicking 'List Employee' button in the initial load page, can navigated to th
 *     pages/employee/list  - employee list feature http://localhost:3000/employee/list
 *     pages/employee/add  - employee add feature http://http://localhost:3000/employee/add
 *     pages/employee/edit  - employee edit feature http://http://localhost:3000/employee/edit/:_id
-            
+
+### Structure of the Frontend
+    apis  - endpoint call handler functions consist in this folder
+    components –  atoms, molecules, organism, templates exists
+       * atoms – buttons, text fields, input controller & toaster
+       * molecules – Forms, Grid View, Table View, Employee Card
+       * organisms - Sections, Navigation
+       * templates – Employee List, Employee Add, Employee Edit
+    context - context API for alert hold in this folder
+    data     - JSON data sets consist in this folder
+    helpers – helper functions consist in this folder
+    pages   - main index , app file and all the route base pages consist
+    store- holds Redux main store slices and reducers
+    types – interfaces hold in this folder
