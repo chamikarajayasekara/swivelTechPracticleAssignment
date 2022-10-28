@@ -77,7 +77,7 @@ export function errorIdentifiedInSubmit(fields:any,obj:any,setInputErrorValue:an
                         }else{
                             setInputErrorValue((prev:any) => ({
                                 ...prev,
-                                [errorField]: {"error":true, "message":"min 6 character and max 10 characters."},
+                                [errorField]: {"error":true, "message":"Min 6 characters and max 10 characters."},
                             }));
                             setEditFields((prev:any) => ({
                                 ...prev,
@@ -95,7 +95,7 @@ export function errorIdentifiedInSubmit(fields:any,obj:any,setInputErrorValue:an
                         }else{
                             setInputErrorValue((prev:any) => ({
                                 ...prev,
-                                [errorField]: {"error":true, "message":"min 6 character and max 10 characters."},
+                                [errorField]: {"error":true, "message":"Min 6 characters and max 10 characters."},
                             }));
                             setEditFields((prev:any) => ({
                                 ...prev,
@@ -112,7 +112,7 @@ export function errorIdentifiedInSubmit(fields:any,obj:any,setInputErrorValue:an
                         }else{
                             setInputErrorValue((prev:any) => ({
                                 ...prev,
-                                [errorField]: {"error":true, "message":"please add valid email."},
+                                [errorField]: {"error":true, "message":"Please add valid email."},
                             }));
                             setEditFields((prev:any) => ({
                                 ...prev,
@@ -151,7 +151,7 @@ export function errorIdentifiedInSubmit(fields:any,obj:any,setInputErrorValue:an
                         }else{
                             setInputErrorValue((prev:any) => ({
                                 ...prev,
-                                [errorField]: {"error":true, "message":"add gender"},
+                                [errorField]: {"error":true, "message":"Add gender"},
                             }));
                             setEditFields((prev:any) => ({
                                 ...prev,
