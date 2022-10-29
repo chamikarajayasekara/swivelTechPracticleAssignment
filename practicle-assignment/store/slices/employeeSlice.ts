@@ -1,7 +1,6 @@
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
-import * as API from "../../apis/employees.api.helper"
 import {IEmployee} from "../../types/IEmployee";
-import {listSelectedEmployeeFromApi} from "../../apis/employees.api.helper";
+import {RestOperationsHelper} from "../../apis/restOperationsHelper";
 
 export interface IEmployeesState {
     employees:IEmployee[],
@@ -26,11 +25,18 @@ const initialState: IEmployeesState = {
 }
 
 
+
 export const listEmployees = createAsyncThunk(
     'employeeManagement/listEmployees',
     async () => {
         try{
-            return await API.listEmployeesFromApi();
+            let userParams = {
+                method: 'get',
+                url: '/employee',
+                headers: { accept: '*/*' },
+                body: null,
+            }
+            return await RestOperationsHelper(userParams)
         } catch (error) {
             throw error;
         }
@@ -40,9 +46,14 @@ export const listEmployees = createAsyncThunk(
 export const listSelectedEmployee = createAsyncThunk(
     'employeeManagement/listSelectedEmployee',
     async ({id}:{id: any}) => {
-        console.log(id)
         try{
-            return await API.listSelectedEmployeeFromApi(id);
+            let userParams = {
+                method: 'get',
+                url: `/employee/${id}`,
+                headers: { accept: '*/*' },
+                body: null,
+            }
+            return await RestOperationsHelper(userParams)
         } catch (error) {
             throw error;
         }
@@ -59,6 +70,7 @@ const EmployeeManagementSlice= createSlice({
                 state.status = 'loading';
             })
             .addCase(listEmployees.fulfilled, (state,{payload}) => {
+                console.log(payload)
                 state.status = 'idle';
                 state.employees = payload?.data
             })

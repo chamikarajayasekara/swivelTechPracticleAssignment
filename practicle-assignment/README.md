@@ -62,3 +62,6 @@ By clicking 'List Employee' button in the initial load page, can navigated to th
     pages   - main index , app file and all the route base pages consist
     store- holds Redux main store slices and reducers
     types – interfaces hold in this folder
+
+### Added enhancement
+    All the rest operations handled by the single functin (apis\restOperationsHelper.ts)

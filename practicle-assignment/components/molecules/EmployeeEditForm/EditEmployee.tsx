@@ -10,10 +10,10 @@ import {
     InputValueGet
 } from "../../../helpers/InputDataSetHelper";
 import EmployeeInputs from "../../../data/employeeeInputs.json"
-import {editEmployee} from "../../../apis/employees.api.helper";
 import {useRouter} from "next/router";
 import {AlertContext} from "../../../context";
 import BorderButton from "../../atoms/BorderButton/BorderButton";
+import {RestOperationsHelper} from "../../../apis/restOperationsHelper";
 
 interface Props {
     selectedEmployee:any
@@ -41,23 +41,38 @@ const EditEmployee = (props:Props) => {
 
     function handleSubmit(e:any) {
         e.preventDefault();
-        errorIdentifiedInSubmit(EmployeeInputs.fields, inputValue, setInputErrorValue,setEditFields, inputErrorValue );
-        let isNull = checkErrorsBeforeSubmit(inputValue,EmployeeInputs.fields );
-        if(!isNull){
-            editEmployee(inputValue, id).then(res => {
-                   if(res.status  === 200){
-                    addAlert("Employee Edited Successfully", "success", true);
-                    router.push("/employee/list")
-                }else{
-                    addAlert("Employee Edited Failed", "failed", true);
-                    router.push("/employee/list")
+        errorIdentifiedInSubmit(EmployeeInputs.fields, inputValue, setInputErrorValue, setEditFields, inputErrorValue);
+        let isNull = checkErrorsBeforeSubmit(inputValue, EmployeeInputs.fields);
+        if (!isNull) {
+            let userParams = {
+                method: 'put',
+                url: `/employee/${id}`,
+                headers: {accept: '*/*'},
+                body: {
+                    "firstName": inputValue.firstName,
+                    "lastName": inputValue.lastName,
+                    "emailAddress": inputValue.emailAddress,
+                    "phoneNumber": inputValue.phoneNumber,
+                    "photo": inputValue.photo,
+                    "gender": inputValue.gender
                 }
-            })
+            }
+            RestOperationsHelper(userParams)
+                .then(res => {
+                    if (res.status === 200) {
+                        addAlert("Employee Edited Successfully", "success", true);
+                        router.push("/employee/list")
+                    } else {
+                        addAlert("Employee Edited Failed", "failed", true);
+                        router.push("/employee/list")
+                    }
+                })
                 .catch(e => {
                     addAlert("Employee Edited Failed", "failed", true);
                     router.push("/employee/list")
                 })
         }
+
     }
     const MainHandleFunction = (e:any, buttonType:string) =>{
         e.preventDefault();

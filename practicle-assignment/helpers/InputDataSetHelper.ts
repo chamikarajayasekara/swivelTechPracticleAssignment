@@ -171,7 +171,6 @@ export function errorIdentifiedInSubmit(fields:any,obj:any,setInputErrorValue:an
                 }
             }
         }
-        console.log(inputErrorValue )
     }
 }
 

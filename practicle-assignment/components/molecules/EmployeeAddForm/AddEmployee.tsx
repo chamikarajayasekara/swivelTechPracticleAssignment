@@ -9,9 +9,9 @@ import {
     InitiallySetData,
     InputValueGet
 } from "../../../helpers/InputDataSetHelper";
-import {addEmployee} from "../../../apis/employees.api.helper";
 import {useRouter} from "next/router";
 import BorderButton from "../../atoms/BorderButton/BorderButton";
+import {RestOperationsHelper} from "../../../apis/restOperationsHelper";
 const AddEmployee = () => {
     const router = useRouter()
     const { addAlert} =useContext(AlertContext)
@@ -21,6 +21,7 @@ const AddEmployee = () => {
 
     useEffect(()=>{
         InitiallySetData(EmployeeInputs.fields, "add", setInputValue,setInputErrorValue , null, setEditFields)
+
     },[])
 
     const handleChangeInputValues = (e:any, dbName:string) => {
@@ -31,12 +32,26 @@ const AddEmployee = () => {
         }));
     };
 
+
     function handleSubmit(e:any) {
         e.preventDefault();
         errorIdentifiedInSubmit(EmployeeInputs.fields, inputValue, setInputErrorValue,setEditFields, inputErrorValue )
         let isNull = checkErrorsBeforeSubmit(inputValue,EmployeeInputs.fields)
         if(!isNull){
-            addEmployee(inputValue).then(res => {
+            let userParams = {
+                method: 'post',
+                url: '/employee',
+                headers: { accept: '*/*' },
+                body: {
+                    "firstName": inputValue.firstName,
+                    "lastName": inputValue.lastName,
+                    "emailAddress": inputValue.emailAddress,
+                    "phoneNumber": inputValue.phoneNumber,
+                    "photo": inputValue.photo,
+                    "gender": inputValue.gender
+                }
+            }
+            RestOperationsHelper(userParams).then(res =>{
                 if(res.status  === 200){
                     addAlert("Employee Created Successfully", "success", true);
                     router.push("/employee/list")
@@ -44,7 +59,6 @@ const AddEmployee = () => {
                     addAlert("Employee Created Failed", "failed", true);
                     router.push("/employee/list")
                 }
-
             })
                 .catch(e => {
                     addAlert("Employee Created Failed", "failed", true);
