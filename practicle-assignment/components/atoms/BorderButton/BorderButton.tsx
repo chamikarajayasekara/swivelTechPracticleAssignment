@@ -1,14 +1,18 @@
 import React from 'react';
 
+type Buttons =  "button" | "submit" | "reset"
 interface Props {
     className:string,
-    MainHandleFunction: (e:any, name:string) => void,
     content:string,
-    buttonName:string
+    buttonName:string,
+    typeBtn:Buttons
 }
 const BorderButton = (props:Props) => {
+
     return (
-        <button  className={props.className}  onClick={e => props.MainHandleFunction(e, props.buttonName)}>{props.content}</button>
+        <>
+            <button  className={props.className} type={props.typeBtn} >{props.content}</button>
+        </>
 
     );
 };

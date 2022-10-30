@@ -7,7 +7,7 @@ describe("<InputController/>", () => {
 
         }
         const {container} = render(
-           <InputController value={"test"} name={"firstName"} placeholder={"firstName"} type={"input"} onChange={handleFunction} label={"firstName"} errors={null} defaultValue={"test"} selectOptions={[{"name": "M"}, {"name": "F"}]} showAsInput={true}></InputController>
+           <InputController value={"test"} name={"firstName"} placeholder={"firstName"} type={"input"} onChange={handleFunction} label={"firstName"} errors={null} defaultValue={"test"} selectOptions={[{"name": "M"}, {"name": "F"}]} showAsInput={true} dbName={"fistName"} register={""}></InputController>
         )
         expect(container).toBeInTheDocument();
     })

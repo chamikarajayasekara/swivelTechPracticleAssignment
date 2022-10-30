@@ -70,7 +70,6 @@ const EmployeeManagementSlice= createSlice({
                 state.status = 'loading';
             })
             .addCase(listEmployees.fulfilled, (state,{payload}) => {
-                console.log(payload)
                 state.status = 'idle';
                 state.employees = payload?.data
             })

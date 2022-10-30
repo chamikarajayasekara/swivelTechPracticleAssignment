@@ -72,6 +72,6 @@
     }
   ],
   "previousRoute": "/employee/list",
-  "buttons": [{"name": "ADD", "class1": "borderButton"}],
+  "buttons": [{"name": "ADD", "class1": "borderButton", "type": "submit"}],
   "selectOptions": [{"name": "M"}, {"name": "F"}]
 }
