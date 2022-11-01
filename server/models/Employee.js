@@ -3,11 +3,15 @@ const mongoose = require("mongoose");
 const EmployeeSchema = mongoose.Schema({
     firstName:{
         type:String,
-        required:true
+        required:true,
+        minLength:6,
+        maxLength:10
     },
     lastName:{
         type:String,
-        required:true
+        required:true,
+        minLength:6,
+        maxLength:10
     },
     emailAddress:{
         type:String,
@@ -15,7 +19,8 @@ const EmployeeSchema = mongoose.Schema({
     },
     phoneNumber:{
         type:String,
-        required:true
+        required:true,
+        maxLength:12
     },
     gender:{
         type:String,
